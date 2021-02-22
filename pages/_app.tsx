@@ -1,3 +1,6 @@
+import type { AppProps } from "next/app";
+import { FC } from "react";
+
 const globals = {
   html: {
     padding: "0",
@@ -15,8 +18,8 @@ const globals = {
   "": { boxSizing: "border-box" },
 };
 
-function MyApp({ Component, pageProps }) {
+const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return <Component style={{ ...globals }} {...pageProps} />;
-}
+};
 
 export default MyApp;
