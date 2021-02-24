@@ -1,18 +1,19 @@
-import { ApiService } from "./ApiService";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { ApiService } from './ApiService';
 
 interface Result {
   total: number;
 }
 
-export class _Domain_Service {
-  public static getCategories = async (): Promise<any> =>
-    await ApiService.get("items");
+export class DomainService {
+  public static getCategories = async (): Promise<> =>
+    await ApiService.get('items');
 
   public static getQuestions = async (
     text: string,
     take: number,
     skip: number
-  ) => {
-    return await ApiService.post("items");
+  ): Promise<T> => {
+    return await ApiService.post('items');
   };
 }

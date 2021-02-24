@@ -1,8 +1,8 @@
 import { Api } from './Api';
 
 class ApiPlumbing extends Api {
-  constructor(basePath: string) {
-    super((basePath = basePath));
+  constructor(bp: string) {
+    super((basePath = bp));
   }
 
   post(url: string) {}
