@@ -1,17 +1,13 @@
-import { Api } from "./Api";
+import { Api } from './Api';
 
 class ApiPlumbing extends Api {
   constructor(basePath: string) {
     super((basePath = basePath));
   }
 
-  post(url: string) {
-    return;
-  }
+  post(url: string) {}
 
-  get(url: string) {
-    return;
-  }
+  get(url: string) {}
 }
 
-export const ApiService = new ApiPlumbing("items");
+export const ApiService = new ApiPlumbing('items');

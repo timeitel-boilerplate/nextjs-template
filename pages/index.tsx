@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 import { FC } from 'react';
 
 const Home: FC<{}> = () => {
@@ -14,6 +14,6 @@ const Home: FC<{}> = () => {
       <footer></footer>
     </div>
   );
-}
+};
 
 export default Home;

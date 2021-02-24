@@ -5,7 +5,7 @@ export abstract class Api {
   constructor(path: string) {
     this.path = path;
     this.headers = {
-      Accept: "application/json",
+      Accept: 'application/json'
     };
   }
 
