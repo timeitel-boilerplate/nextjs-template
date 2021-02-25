@@ -1,13 +1,29 @@
-import { Api } from './Api';
+import Api from './Api';
+import { ApiResponse } from './types';
 
-class ApiPlumbing extends Api {
-  constructor(bp: string) {
-    super((basePath = bp));
+export const ApiService = new Api('').setHeaders([
+  {
+    key: 'Accept',
+    value: 'application/json'
+  },
+  {
+    key: 'Content-Type',
+    value: 'application/json'
   }
+]);
 
-  post(url: string) {}
+fetch('/users', api.request(body))
+  .then((res) => res.json())
+  .then((data) => {
+    const response: ApiResponse<T> = data;
 
-  get(url: string) {}
-}
-
-export const ApiService = new ApiPlumbing('items');
+    if (response.Result === APIResult.FAILURE) {
+      // handle failed call here
+    } else if (response.Result === APIResult.SUCCESS) {
+      // do stuff with response
+    }
+  })
+  .catch(() => {
+    console.log('Fetch request error');
+    // reset state, make button clickable again, etc
+  });

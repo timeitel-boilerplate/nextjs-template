@@ -1,23 +1,50 @@
-export abstract class Api {
-  path: string;
-  headers: {};
+import { ApiRequest, ApiRequestConfig } from './types';
 
-  constructor(path: string) {
-    this.path = path;
-    this.headers = {
-      Accept: 'application/json'
-    };
+export class API {
+  public get<T>(
+    path: string,
+    requestConfig: ApiRequestConfig
+  ): Promise<Response> {
+    return fetch(path, requestConfig);
   }
 
-  post(url: string) {
-    fetch(url);
+  public post<T>(
+    path: string,
+    requestConfig: ApiRequestConfig
+  ): Promise<Response> {
+    return fetch(path, requestConfig);
   }
 
-  get(url: string) {
-    fetch(url);
+  public put<T>(
+    path: string,
+    requestConfig: ApiRequestConfig
+  ): Promise<Response> {
+    return fetch(path, requestConfig);
   }
 
-  // if (this.api_token) {
-  //   headers.Authorization = `Bearer ${this.api_token}`;
-  // }
+  public delete<T>(
+    path: string,
+    requestConfig: ApiRequestConfig
+  ): Promise<Response> {
+    return fetch(path, requestConfig);
+  }
 }
+
+export class ApiHelper {
+  _headers: Record<string, string>[];
+
+  constructor() {
+    this._headers = [
+      {
+        key: 'Accept',
+        value: 'application/json'
+      },
+      {
+        key: 'Content-Type',
+        value: 'application/json'
+      }
+    ];
+  }
+}
+
+export default API;
