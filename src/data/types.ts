@@ -1,4 +1,9 @@
-export type ApiMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
+export enum ApiMethod {
+  Get = 'GET',
+  Post = 'POST',
+  Put = 'PUT',
+  Delete = 'DELETE'
+}
 
 export type ApiRequestConfig = {
   method: ApiMethod;

@@ -1,50 +1,54 @@
-import { ApiRequest, ApiRequestConfig } from './types';
+import { ApiRequestConfig, ApiMethod } from './types';
 
 export class API {
-  public get<T>(
-    path: string,
-    requestConfig: ApiRequestConfig
-  ): Promise<Response> {
-    return fetch(path, requestConfig);
+  public static async get<T>(path: string): Promise<T> {
+    const res = await fetch(path, ApiRequestConfigBuilder());
+
+    return await res.json();
   }
 
-  public post<T>(
+  public static async post<T>(
     path: string,
     requestConfig: ApiRequestConfig
-  ): Promise<Response> {
-    return fetch(path, requestConfig);
+  ): Promise<T> {
+    const res = await fetch(path, ApiRequestConfigBuilder(requestConfig));
+
+    return await res.json();
   }
 
-  public put<T>(
+  public static async put<T>(
     path: string,
     requestConfig: ApiRequestConfig
-  ): Promise<Response> {
-    return fetch(path, requestConfig);
+  ): Promise<T> {
+    const res = await fetch(path, ApiRequestConfigBuilder(requestConfig));
+
+    return await res.json();
   }
 
-  public delete<T>(
+  public static async delete<T>(
     path: string,
     requestConfig: ApiRequestConfig
-  ): Promise<Response> {
-    return fetch(path, requestConfig);
+  ): Promise<T> {
+    const res = await fetch(path, ApiRequestConfigBuilder(requestConfig));
+
+    return await res.json();
   }
 }
 
-export class ApiHelper {
-  _headers: Record<string, string>[];
+const ApiRequestConfigBuilder = (
+  config?: ApiRequestConfig
+): ApiRequestConfig => {
+  const apiRequest: ApiRequestConfig = {
+    body: config?.body || '',
+    headers: ApiHeadersBuilder,
+    method: ApiMethod.Get
+  };
 
-  constructor() {
-    this._headers = [
-      {
-        key: 'Accept',
-        value: 'application/json'
-      },
-      {
-        key: 'Content-Type',
-        value: 'application/json'
-      }
-    ];
-  }
-}
+  return apiRequest;
+};
+
+const ApiHeadersBuilder = {
+  'content-type': 'application/json;charset=UTF-8'
+};
 
 export default API;

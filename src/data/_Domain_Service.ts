@@ -1,19 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import Api from './Api';
 import { ApiService } from './ApiService';
-
-interface Result {
-  total: number;
-}
+import { ApiRequestConfig } from './types';
 
 export class DomainService {
-  public static getCategories = async (): Promise<> =>
+  public static getCategories = async (): Promise<Api> =>
     await ApiService.get('items');
 
   public static getQuestions = async (
-    text: string,
-    take: number,
-    skip: number
-  ): Promise<T> => {
-    return await ApiService.post('items');
+    url: string,
+    requestConfig: ApiRequestConfig
+  ): Promise<Api> => {
+    return await ApiService.post(url, requestConfig);
   };
 }
