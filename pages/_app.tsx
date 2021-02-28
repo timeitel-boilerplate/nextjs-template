@@ -1,25 +1,15 @@
-import type { AppProps } from "next/app";
-import { FC } from "react";
+import type { AppProps } from 'next/app';
+import { FC } from 'react';
+import { GlobalStyles, theme } from '@theme';
+import { ThemeProvider } from 'styled-components';
 
-const globals = {
-  html: {
-    padding: "0",
-    margin: "0",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-  },
-  body: {
-    padding: "0",
-    margin: "0",
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-  },
-  a: { color: "inherit", textDecoration: "none" },
-  "": { boxSizing: "border-box" },
-};
-
-const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  return <Component style={{ ...globals }} {...pageProps} />;
+const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 };
 
 export default MyApp;

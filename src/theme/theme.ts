@@ -1,4 +1,4 @@
-import {} from 'styled-components';
+import 'styled-components';
 
 export const theme = {
   palette: {
@@ -16,7 +16,10 @@ export const theme = {
     }
   }
 };
+
+// extend the module declarations using custom theme type
+type Theme = typeof theme;
+
 declare module 'styled-components' {
-  type Theme = typeof theme;
   export type DefaultTheme = Theme;
 }
