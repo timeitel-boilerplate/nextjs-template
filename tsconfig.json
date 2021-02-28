@@ -17,11 +17,11 @@
     "paths": {
       "@*": ["/*"],
       "@theme": ["theme"],
-      "@data/*": ["/data/*"],
-      "@utils/*": ["/utils/*"],
+      "@data/*": ["data/*"],
+      "@utils/*": ["utils/*"],
       "@pages/*": ["pages/*"]
-    },
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }
