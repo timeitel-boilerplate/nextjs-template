@@ -1,3 +1,5 @@
+import {} from 'styled-components';
+
 export const theme = {
   palette: {
     primary: {
@@ -14,3 +16,7 @@ export const theme = {
     }
   }
 };
+declare module 'styled-components' {
+  type Theme = typeof theme;
+  export type DefaultTheme = Theme;
+}
