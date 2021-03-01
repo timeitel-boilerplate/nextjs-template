@@ -1,9 +1,9 @@
-import { DefaultTheme } from 'styled-components';
+import { ThemeProps } from './theme';
 
-export const createSpacing = (parameters: string[]) => (multiplier: number) => (
-  props: DefaultTheme
+const createSpacing = (parameters: string[]) => (multiplier: number) => (
+  props: ThemeProps
 ): string => {
-  const value = props.theme.spacing(multiplier);
+  const value = props.theme?.space[multiplier];
   return parameters.map((param) => `${param}: ${value}px`).join('');
 };
 

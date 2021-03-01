@@ -1,25 +1,14 @@
-import 'styled-components';
+import { colors } from './colors';
 
 export const theme = {
-  palette: {
-    primary: {
-      main: '#556cd6'
-    },
-    secondary: {
-      main: '#19857b'
-    },
-    error: {
-      main: '#ef5350'
-    },
-    background: {
-      default: '#fff'
-    }
+  colors,
+  space: [4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256],
+  shadow: {
+    light: '1px 1px 1px 1px rgba(0, 0, 0, 0.1)',
+    normal: '1px 1px 3px 1px rgba(0, 0, 0, 0.2)',
+    strong: '1px 1px 5px 1px rgba(0, 0, 0, 0.3)'
   }
 };
 
-// extend the module declarations using custom theme type
-type Theme = typeof theme;
-
-declare module 'styled-components' {
-  export type DefaultTheme = Theme;
-}
+export type Theme = typeof theme;
+export type ThemeProps = { theme?: Theme };

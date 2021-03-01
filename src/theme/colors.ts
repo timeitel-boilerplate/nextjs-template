@@ -1,2 +1,4 @@
-export const color = (variant: string, type = 'main') => (props): string =>
-  props.theme.palette[variant][type];
+export const colors = {
+  primary: 'red',
+  secondary: 'blue'
+};
