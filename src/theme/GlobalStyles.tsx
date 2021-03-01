@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0; 
     margin: 0; 
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,\n    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;  
+    color: ${(p) => p.theme.grey500}
   }
 
   a { 
