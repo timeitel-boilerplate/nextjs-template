@@ -1,10 +1,12 @@
 import { ApiRequestConfig, ApiMethod } from './types';
 
-export class API {
+export class Api {
   public static async get<T>(path: string): Promise<T> {
     const res = await fetch(path, ApiRequestConfigBuilder());
 
-    return await res.json();
+    if (!res.ok) throw new Error(res.statusText);
+
+    return (await res.json()) as Promise<T>;
   }
 
   public static async post<T>(
@@ -13,7 +15,10 @@ export class API {
   ): Promise<T> {
     const res = await fetch(path, ApiRequestConfigBuilder(requestConfig));
 
-    return await res.json();
+    if (!res.ok) throw new Error(res.statusText);
+    if (res.body !== null) throw new Error('Error in post');
+
+    return (await res.json()) as Promise<T>;
   }
 
   public static async put<T>(
@@ -22,7 +27,10 @@ export class API {
   ): Promise<T> {
     const res = await fetch(path, ApiRequestConfigBuilder(requestConfig));
 
-    return await res.json();
+    if (!res.ok) throw new Error(res.statusText);
+    if (res.body !== null) throw new Error('Error in post');
+
+    return (await res.json()) as Promise<T>;
   }
 
   public static async delete<T>(
@@ -31,7 +39,10 @@ export class API {
   ): Promise<T> {
     const res = await fetch(path, ApiRequestConfigBuilder(requestConfig));
 
-    return await res.json();
+    if (!res.ok) throw new Error(res.statusText);
+    if (res.body !== null) throw new Error('Error in post');
+
+    return (await res.json()) as Promise<T>;
   }
 }
 
@@ -51,4 +62,4 @@ const ApiHeadersBuilder = {
   'content-type': 'application/json;charset=UTF-8'
 };
 
-export default API;
+export const ApiService = Api;

@@ -1,10 +1,13 @@
-import Api from './Api';
-import { ApiService } from './ApiService';
+import { Api, ApiService } from './Api';
 import { ApiRequestConfig } from './types';
 
+type TestType = {
+  active: boolean;
+};
+
 export class DomainService {
-  public static getCategories = async (): Promise<Api> =>
-    await ApiService.get('items');
+  public static getCategories = async (): Promise<TestType> =>
+    await ApiService.get<TestType>('items');
 
   public static getQuestions = async (
     url: string,
