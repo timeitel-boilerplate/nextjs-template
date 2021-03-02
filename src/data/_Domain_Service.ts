@@ -7,7 +7,7 @@ type TestType = {
 
 export class DomainService {
   public static getCategories = async (): Promise<TestType> =>
-    await ApiService.get<TestType>('items');
+    await ApiService.get('items');
 
   public static getQuestions = async (
     url: string,
