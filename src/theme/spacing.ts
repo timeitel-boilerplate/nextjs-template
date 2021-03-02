@@ -1,9 +1,9 @@
-import { ThemeProps } from './theme';
+import { Theme } from './theme';
 
 const createSpacing = (parameters: string[]) => (multiplier: number) => (
-  props: ThemeProps
+  props: Theme
 ): string => {
-  const value = props.theme?.space[multiplier];
+  const value = props.spacing[multiplier];
   return parameters.map((param) => `${param}: ${value}px`).join('');
 };
 
