@@ -1,9 +1,12 @@
-import { Theme } from '@theme';
+import { theme, ThemeType } from '@theme';
 import { FC, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
 const variants = {
-  default: {},
+  default: {
+    bg: theme.colors.primary,
+    color: theme.colors.white
+  },
   contained: {},
   outline: {},
   link: {}
@@ -11,7 +14,7 @@ const variants = {
 interface ButtonProps {
   variant?: keyof typeof variants;
   isLoading?: boolean;
-  color?: keyof Theme;
+  color?: keyof ThemeType;
   children: ReactNode;
 }
 
@@ -19,12 +22,12 @@ const ButtonStyled = styled.button<ButtonProps>`
   border-radius: 4px;
 
   ${({ variant }) =>
-    variant === 'default' &&
+    variant &&
     css`
-      background-color: ${(p) => p.theme.colors.primary};
-      color: ${({ theme }) => theme.colors.white};
+      background-color: variants[variant].bg;
+      color: variants[variant].color;
       &:active {
-        background-color: ${(p) => p.theme.colors.grey700};
+        background-color: variants[variant].bg;
       }
     `}
 `;
