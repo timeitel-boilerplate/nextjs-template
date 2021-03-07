@@ -13,19 +13,19 @@ import {
 
 export interface ModalProps {
   isOpen: boolean;
-  close: () => void;
+  onClose: () => void;
   headerText: string;
 }
 
 export const Modal: FC<ModalProps> = ({
   isOpen,
-  close,
+  onClose,
   headerText,
   children
 }) => {
   const onKeyDown = (event: KeyboardEvent) => {
     if (event.code === 'Escape' && isOpen) {
-      close();
+      onClose();
     }
   };
 
@@ -41,7 +41,7 @@ export const Modal: FC<ModalProps> = ({
 
   const modal = (
     <>
-      <Backdrop onClick={close} />
+      <Backdrop onClick={onClose} />
       <FocusLock>
         <Wrapper
           aria-modal
@@ -52,7 +52,7 @@ export const Modal: FC<ModalProps> = ({
           <StyledModal>
             <Header>
               <HeaderText>{headerText}</HeaderText>
-              <CloseButton onClick={close}>X</CloseButton>
+              <CloseButton onClick={onClose}>X</CloseButton>
             </Header>
             <Content>{children}</Content>
           </StyledModal>
