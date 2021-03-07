@@ -18,6 +18,7 @@
     "react-focus-lock": "^2.5.0",
     "react-query": "^3.9.8",
     "react-spring": "^8.0.27",
+    "react-tiny-popover": "^6.0.4",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
