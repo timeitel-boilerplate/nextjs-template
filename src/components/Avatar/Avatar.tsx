@@ -7,9 +7,11 @@ type AvatarSizes = {
   lg: string;
 };
 
-export const Avatar = styled.div<{
-  color: keyof ThemeColorType;
+export interface AvatarProps {
+  color: ThemeColorType;
   size: AvatarSizes;
-}>`
+}
+
+export const Avatar = styled.div<AvatarProps>`
   border-radius: 50%;
 `;

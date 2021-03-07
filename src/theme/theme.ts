@@ -23,6 +23,7 @@ export const theme = {
 };
 
 export type ThemeType = typeof theme;
+export type ThemeColorType = keyof typeof theme;
 
 declare module 'styled-components' {
   type Theme = typeof theme;
