@@ -1,12 +1,26 @@
+import { PlaceholderProp } from '@utils/types';
 import { FC } from 'react';
+import styled from 'styled-components';
 
-interface LayoutProps {}
+const Main = styled.div`
+  display: flex;
+  height: 100%;
+  min-width: 150px;
+`;
 
-export const Layout: FC<LayoutProps> = ({ children }) => {
+const Sidebar = styled.div`
+  min-width: 120px;
+  background: red;
+  padding: ${(p) => p.theme.spacing[4]};
+`;
+
+// interface LayoutProps {}
+
+export const Layout: FC<PlaceholderProp> = ({ children }) => {
   return (
-    <>
-      <div style={{ background: 'red' }}>Sidebar</div>
+    <Main>
+      <Sidebar>Sidebar</Sidebar>
       <div>{children}</div>
-    </>
+    </Main>
   );
 };
